@@ -1,13 +1,170 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.body-container {
+  margin: 0 90px;
+  height: 100vh;
+}
+
+.logo {
+  height: 3em;
+}
+
+.nav-item {
+  padding: 0 0.15em;
+}
+
+.nav-item > a {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: black;
+}
+
+.landing-page-hero {
+  min-height: 400px;
+  background-color: #dfedf5;
+  height: 80vh;
+}
+
+.landing-page-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5em;
+}
+
+.landing-page-hero p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
+}
+
+.black-button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  color: white;
+  background-color: black;
+  border: 0;
+  padding: 8px 30px;
+}
+
+.landing-page-image img {
+  width: 85%;
+}
+
+/* .geometric-pattern {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.geometric-pattern div {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 0;
+}
+
+.geometric-pattern .white {
+  background-color: white;
+} */
+
+.subheader h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 3%;
+}
+
+.featured-products {
+  margin-top: 5%;
+}
+
+.featured-product {
+  width: 340px !important
+}
+
+.featured-product img {
+  width: 340px;
+}
+
+.featured-product .product-details {
+  padding-top: 8px;
+}
+
+.product-details h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.product-price {
+  color: #266DD3;
+}
+
+.new-arrivals {
+  margin-top: 5%;
+  background-color: #dfedf5;
+  padding: 5% 3%;
+}
+
+.subheader p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
+}
+
+.card-body {
+  background-color: #dfedf5;
+}
+
+footer {
+  height: 250px;
+  width: 100vw;
+  position: relative;
+  left: calc(-50vw + 50%);
+  background-color: #dfedf5;
+  margin-top: 10%;
+}
+
+.footer {
+  margin:  90px;
+}
+
+@media only screen and (max-width: 750px) {
+  .landing-page-image {
+    display: none;
+  }
+
+  .geometric-pattern {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .body-container {
+    margin: 0 40px;
+  }
+
+  .landing-page-hero {
+    height: 300px;
+  }
+
+  .landing-page-hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 10vw;
+  }
 }
