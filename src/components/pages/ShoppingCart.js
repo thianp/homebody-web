@@ -1,12 +1,12 @@
 import fullLogo from "../../assets/images/full-logo.png";
-import hangingLamps from "../../assets/images/hanging-lamps.png";
-import bambooArmchair from "../../assets/images/bamboo-armchair.png";
 import logo from "../../assets/images/logo.png";
 import facebook from "../../assets/images/facebook.png";
 import twitter from "../../assets/images/twitter.png";
 import linkedin from "../../assets/images/linkedin.png";
+import coverImg from "../../assets/images/product-listing-cover.png";
+import sofa from "../../assets/images/sofa.png";
 
-function HomePage() {
+function ShoppingCart() {
   return (
     <>
       {/* ----- Header ----- */}
@@ -153,116 +153,127 @@ function HomePage() {
           </div>
         </nav>
       </header>
-      {/* ----- Landing page hero ----- */}
-      <div className="landing-page-hero mt-2 container-fluid">
-        <div className="row ">
-          <div className="landing-page-text col-sm align-self-center px-5">
-            <h1 className="heading-text">Modern Minimal Furniture</h1>
-            <p className="desc-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <button className="black-button">Explore</button>
-          </div>
-          <div className="landing-page-image col-sm ">
-            <img src={hangingLamps}></img>
-          </div>
-        </div>
-        {/* <div className="geometric-pattern">
-          <div className="white"></div>
-          <div></div>
-          <div></div>
-          <div className="white"></div>
-        </div> */}
-      </div>
-      {/* ----- Featured products ----- */}
-      <div className="featured-products">
+      {/* ----- Your Shopping Cart ----- */}
+      <div className="shopping-cart">
         <div className="subheader-text">
-          <h2>Featured Products</h2>
+          <h2>Your Shopping Cart</h2>
         </div>
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
+        <div className="mt-5">
+          <hr />
+          <div className="cart-items">
+            <div className="row cart-item py-3">
+              <div className="col-md-4">
+                <img src={sofa}></img>
+              </div>
+              <div className="col-md-4 product-details p-0">
+                <h5 className="product-name">Sofa</h5>
+                <button className="white-button quantity-dropdown mt-3 dropdown-container">
+                  <a
+                    className="btn dropdown-toggle p-0"
+                    href="#"
+                    role="button"
+                    id="quantityDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Quantity: 1
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="quantityDropdown"
+                  >
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>1</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>2</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>3</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>4</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>5</p>
+                      </a>
+                    </li>
+                  </ul>
+                </button>
+              </div>
+              <div className="col-md-4">
+              <h5 className="product-price text-end">2,500 Baht</h5>
               </div>
             </div>
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
+            <div className="row cart-item py-3">
+              <div className="col-md-4">
+                <img src={sofa}></img>
               </div>
-            </div>
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
+              <div className="col-md-4 product-details p-0">
+                <h5 className="product-name">Sofa</h5>
+                <button className="white-button quantity-dropdown mt-3 dropdown-container">
+                  <a
+                    className="btn dropdown-toggle p-0"
+                    href="#"
+                    role="button"
+                    id="quantityDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Quantity: 1
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="quantityDropdown"
+                  >
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>1</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>2</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>3</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>4</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <p>5</p>
+                      </a>
+                    </li>
+                  </ul>
+                </button>
+              </div>
+              <div className="col-md-4">
+              <h5 className="product-price text-end">2,500 Baht</h5>
               </div>
             </div>
           </div>
+          <hr />
         </div>
-        <div className="d-flex justify-content-center my-5">
-          <button className="black-button">View All</button>
-        </div>
-      </div>
-      {/* ----- New Arrivals ----- */}
-      <div className="new-arrivals">
-        <div className="subheader-text d-flex text-center flex-column">
-          <h2>New Arrivals</h2>
-          <p className="desc-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-          </p>
-        </div>
-        <div className="row row-cols-2 row-cols-md-4 mt-4">
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
-              </div>
-            </div>
-          </div>
+        <div className="price-summary mt-4 d-flex align-items-end flex-column">
+                <h3 className="product-price">Total</h3>
+                <h4 className="product-price">16,000 Baht</h4>
+                <button className="black-button">Checkout</button>
         </div>
       </div>
       {/* ----- Footer ----- */}
@@ -298,4 +309,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ShoppingCart;

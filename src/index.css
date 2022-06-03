@@ -38,12 +38,12 @@ code {
   height: 80vh;
 }
 
-.landing-page-hero h1 {
+.heading-text {
   font-family: "Playfair Display", serif;
   font-size: 3.5em;
 }
 
-.landing-page-hero p {
+p.desc-text {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 0.8em;
@@ -84,7 +84,7 @@ code {
   background-color: white;
 } */
 
-.subheader h2 {
+.subheader-text h2 {
   font-family: "Playfair Display", serif;
   margin-bottom: 3%;
 }
@@ -94,14 +94,14 @@ code {
 }
 
 .featured-product {
-  width: 340px !important
+  width: 340px !important;
 }
 
 .featured-product img {
   width: 340px;
 }
 
-.featured-product .product-details {
+.product-details {
   padding-top: 8px;
 }
 
@@ -112,7 +112,7 @@ code {
 }
 
 .product-price {
-  color: #266DD3;
+  color: #266dd3;
 }
 
 .new-arrivals {
@@ -121,13 +121,11 @@ code {
   padding: 5% 3%;
 }
 
-.subheader p {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-size: 0.8em;
+.card img {
+  border-radius: 0 !important;
 }
 
-.card-body {
+.new-arrivals .card-body {
   background-color: #dfedf5;
 }
 
@@ -141,7 +139,162 @@ footer {
 }
 
 .footer {
-  margin:  90px;
+  margin: 0 90px;
+  padding-top: 30px;
+}
+
+.footer a img {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.dropdown-item p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
+  margin-bottom: 0;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-container .dropdown-menu {
+  position: absolute;
+  top: 50px !important;
+}
+
+.quantity-dropdown .dropdown-menu {
+  top: 20px !important;
+}
+
+.th-option {
+  font-family: "IBM Plex Sans Thai", sans-serif !important;
+}
+
+.about-us {
+  width: 60%;
+  padding: 80px 0 0;
+}
+
+.about-us .heading-text {
+  margin-bottom: 25px;
+}
+
+.listings-cover {
+  margin-top: 5%;
+}
+
+.cover-img {
+  width: 100vw;
+  height: auto;
+  position: relative;
+  left: calc(-50vw + 50%);
+}
+
+.cover-img img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.filter-dropdown * {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9em !important;
+  font-weight: 300 !important;
+  color: black;
+}
+
+.product-listings.container {
+  margin-top: 3%;
+}
+
+.product-images img {
+  width: 100%;
+  height: auto;
+}
+
+.shopping-cart {
+  margin-top: 5%;
+}
+
+img.grayscale {
+  filter: brightness(50%);
+}
+
+.shopping-cart hr {
+  border: 0.2px solid black;
+  opacity: 100%;
+}
+
+.cart-item img {
+  width: 100%;
+  height: auto;
+}
+
+.cart-item .col-md-4 {
+  padding: 0 3%;
+}
+
+.white-button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  padding: 8px 30px;
+}
+
+.cart-item .product-price {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.price-summary * {
+  font-family: "Poppins", sans-serif;
+  margin-top: 5px;
+}
+
+.payment-code {
+  width: 30%;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50px;
+  border-radius: 0 !important;
+  border: none !important;
+  background-color: #dfedf5 !important;
+}
+
+.login {
+  width: 60%;
+  padding: 80px 0 0;
+}
+
+.login .heading-text {
+  margin-bottom: 25px;
+}
+
+form label {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8em;
+  font-weight: 300;
+  color: black;
+}
+
+::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #5f5f5f;
+}
+
+input.form-control {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  padding-left: 0;
 }
 
 @media only screen and (max-width: 750px) {
@@ -152,10 +305,19 @@ footer {
   .geometric-pattern {
     display: none;
   }
+
+  .cart-item .col-md-4 {
+    padding: 3% 3%;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .body-container {
+    margin: 0 40px;
+  }
+
+  .footer {
     margin: 0 40px;
   }
 

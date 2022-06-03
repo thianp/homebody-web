@@ -1,12 +1,11 @@
 import fullLogo from "../../assets/images/full-logo.png";
-import hangingLamps from "../../assets/images/hanging-lamps.png";
-import bambooArmchair from "../../assets/images/bamboo-armchair.png";
 import logo from "../../assets/images/logo.png";
 import facebook from "../../assets/images/facebook.png";
 import twitter from "../../assets/images/twitter.png";
 import linkedin from "../../assets/images/linkedin.png";
+import qrCode from "../../assets/images/promptpay-example.png";
 
-function HomePage() {
+function Checkout() {
   return (
     <>
       {/* ----- Header ----- */}
@@ -153,113 +152,49 @@ function HomePage() {
           </div>
         </nav>
       </header>
-      {/* ----- Landing page hero ----- */}
-      <div className="landing-page-hero mt-2 container-fluid">
-        <div className="row ">
-          <div className="landing-page-text col-sm align-self-center px-5">
-            <h1 className="heading-text">Modern Minimal Furniture</h1>
-            <p className="desc-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <button className="black-button">Explore</button>
-          </div>
-          <div className="landing-page-image col-sm ">
-            <img src={hangingLamps}></img>
-          </div>
+      {/* ----- Promptpay QR code ----- */}
+      <div className="align-items-center d-flex flex-column mt-5">
+        <img className="payment-code" src={qrCode}></img>
+        <div className="price-summary mt-4 d-flex justify-content-between">
+          <h3 className="product-price align-self-baseline px-4">Total</h3>
+          <h4 className="product-price align-self-baseline px-4">
+            16,000 Baht
+          </h4>
         </div>
-        {/* <div className="geometric-pattern">
-          <div className="white"></div>
-          <div></div>
-          <div></div>
-          <div className="white"></div>
-        </div> */}
-      </div>
-      {/* ----- Featured products ----- */}
-      <div className="featured-products">
-        <div className="subheader-text">
-          <h2>Featured Products</h2>
-        </div>
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
+        <button
+          className="black-button mt-3"
+          data-bs-toggle="modal"
+          data-bs-target="#paymentConfirmationModal"
+        >
+          Upload Receipt
+        </button>
+        <div
+          class="modal fade"
+          id="paymentConfirmationModal"
+          tabindex="-1"
+          aria-labelledby="paymentConfirmationModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content pb-5">
+              <button
+                type="button"
+                class="btn-close align-self-end m-2"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              <div class="modal-header border-0 d-flex justify-content-center subheader-text ">
+                <h2
+                  class="modal-title text-center px-3 m-0"
+                  id="paymentConfirmationModalLabel"
+                >
+                  Thank You For Your Purchase!
+                </h2>
               </div>
-            </div>
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="d-flex justify-content-center my-5">
-          <button className="black-button">View All</button>
-        </div>
-      </div>
-      {/* ----- New Arrivals ----- */}
-      <div className="new-arrivals">
-        <div className="subheader-text d-flex text-center flex-column">
-          <h2>New Arrivals</h2>
-          <p className="desc-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-          </p>
-        </div>
-        <div className="row row-cols-2 row-cols-md-4 mt-4">
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
+              <div class="modal-body d-flex justify-content-center p-0 text-center">
+                <p className="desc-text">
+                  Your receipt was successfully uploaded.
+                </p>
               </div>
             </div>
           </div>
@@ -298,4 +233,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Checkout;

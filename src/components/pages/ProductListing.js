@@ -1,12 +1,12 @@
 import fullLogo from "../../assets/images/full-logo.png";
-import hangingLamps from "../../assets/images/hanging-lamps.png";
-import bambooArmchair from "../../assets/images/bamboo-armchair.png";
 import logo from "../../assets/images/logo.png";
 import facebook from "../../assets/images/facebook.png";
 import twitter from "../../assets/images/twitter.png";
 import linkedin from "../../assets/images/linkedin.png";
+import coverImg from "../../assets/images/product-listing-cover.png";
+import bambooChair from "../../assets/images/bamboo-chair.png";
 
-function HomePage() {
+function ProductListing() {
   return (
     <>
       {/* ----- Header ----- */}
@@ -153,118 +153,145 @@ function HomePage() {
           </div>
         </nav>
       </header>
-      {/* ----- Landing page hero ----- */}
-      <div className="landing-page-hero mt-2 container-fluid">
-        <div className="row ">
-          <div className="landing-page-text col-sm align-self-center px-5">
-            <h1 className="heading-text">Modern Minimal Furniture</h1>
-            <p className="desc-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <button className="black-button">Explore</button>
-          </div>
-          <div className="landing-page-image col-sm ">
-            <img src={hangingLamps}></img>
-          </div>
-        </div>
-        {/* <div className="geometric-pattern">
-          <div className="white"></div>
-          <div></div>
-          <div></div>
-          <div className="white"></div>
-        </div> */}
-      </div>
-      {/* ----- Featured products ----- */}
-      <div className="featured-products">
+      {/* ----- Product listings cover ----- */}
+      <div className="listings-cover">
         <div className="subheader-text">
-          <h2>Featured Products</h2>
+          <h2>Living Room</h2>
         </div>
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col p-0">
-              <div className="featured-product mx-auto">
-                <div>
-                  <img src={bambooArmchair}></img>
-                </div>
-                <div className="product-details d-flex justify-content-between">
-                  <h5 className="product-name">Bamboo Armchair</h5>
-                  <h5 className="product-price text-end">2,500 Baht</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="d-flex justify-content-center my-5">
-          <button className="black-button">View All</button>
+        <div className="cover-img">
+          <img src={coverImg}></img>
         </div>
       </div>
-      {/* ----- New Arrivals ----- */}
-      <div className="new-arrivals">
-        <div className="subheader-text d-flex text-center flex-column">
-          <h2>New Arrivals</h2>
-          <p className="desc-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-          </p>
+      {/* ----- Product filter ----- */}
+      <div class="dropdown filter-dropdown d-flex justify-content-end mt-4">
+        <a
+          class="btn dropdown-toggle"
+          href="#"
+          role="button"
+          id="filterDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Sort By: Price (Low to High)
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+          <li>
+            <a class="dropdown-item" href="#">
+              Sort By: Price (Low to High)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Sort By: Price (High to Low)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Sort By: Name (A to Z)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Sort By: Name (Z to A)
+            </a>
+          </li>
+        </ul>
+      </div>
+      {/* ----- Product listings ----- */}
+      <div class="container product-listings">
+        <div class="row">
+          <div class="col-md-4 mt-3">
+            <div className="card border-0">
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div className="card border-0">
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div className="card border-0">
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="row row-cols-2 row-cols-md-4 mt-4">
-          <div className="col">
+        <div class="row">
+          <div class="col-md-4 mt-3">
             <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
               </div>
             </div>
           </div>
-          <div className="col">
+          <div class="col-md-4 mt-3">
             <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
               </div>
             </div>
           </div>
-          <div className="col">
+          <div class="col-md-4 mt-3">
             <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
               </div>
             </div>
           </div>
-          <div className="col">
+        </div>
+        <div class="row">
+          <div class="col-md-4 mt-3">
             <div className="card border-0">
-              <img className="card-img-top" src={bambooArmchair}></img>
-              <div className="card-body product-details text-center">
-                <h5 className="card-title">Bamboo Armchair</h5>
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div className="card border-0">
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mt-3">
+            <div className="card border-0">
+              <img className="card-img-top" src={bambooChair}></img>
+              <div className="product-details product-details d-flex justify-content-between">
+                <h5 className="product-name">Bamboo Armchair</h5>
+                <h5 className="product-price text-end">2,500 Baht</h5>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {/* ----- Show More ----- */}
+      <div className="d-flex justify-content-center mt-5">
+          <button className="black-button">Show More</button>
+        </div>
       {/* ----- Footer ----- */}
       <footer>
         <div className="footer">
@@ -298,4 +325,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ProductListing;
