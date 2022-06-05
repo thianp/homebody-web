@@ -162,6 +162,7 @@ footer {
 .dropdown-container .dropdown-menu {
   position: absolute;
   top: 50px !important;
+  
 }
 
 .quantity-dropdown .dropdown-menu {
@@ -259,7 +260,7 @@ img.grayscale {
   width: 30%;
 }
 
-.modal-content {
+.payment-confirmation-modal {
   position: absolute;
   top: 50px;
   border-radius: 0 !important;
@@ -295,6 +296,140 @@ input.form-control {
   border-radius: 0;
   border-bottom: 1px solid black;
   padding-left: 0;
+}
+
+.login .row {
+  width: 70%;
+}
+
+.register {
+  width: 60%;
+  padding: 80px 0 0;
+}
+
+.register .row {
+  width: 70%;
+}
+
+select.form-select {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #5f5f5f;
+  width: 75%;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  padding-left: 0;
+}
+
+.purchase-history {
+  padding: 80px 0 0;
+}
+
+.purchase-history .label-row {
+  margin-top: 4%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 0.8% 0;
+}
+
+.purchase-history .label-row .col {
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.purchase-history .order-row {
+  border-bottom: 0.8px solid #5f5f5f;
+  padding: 0.8% 0;
+}
+
+.purchase-history .order-row .col {
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
+}
+
+.light-button {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #5f5f5f;
+  background-color: white;
+  border: 1px solid #5f5f5f;
+}
+
+.light-button a {
+  text-decoration: none;
+  color: #5f5f5f;
+}
+
+.view-details-modal {
+  position: absolute;
+  top: 50px;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.admin-container {
+  height: 100%;
+}
+
+.admin-container .row {
+  height: 100%;
+}
+
+.admin-sidebar {
+  border-right: 1px solid black;
+}
+
+.view-orders .label-row {
+  margin-top: 4%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 0.8% 0;
+}
+
+.view-orders .label-row .col {
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.view-orders .order-row {
+  border-bottom: 0.8px solid #5f5f5f;
+  padding: 0.8% 0;
+}
+
+.view-orders .order-row .col {
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 0.8em;
+}
+
+.status-dropdown .dropdown-menu {
+  top: 20px !important;
+}
+
+.new-product-modal {
+  position: absolute;
+  top: 50px;
+  border-radius: 0 !important;
+  border: none !important;
+  margin-bottom: 50px;
+}
+
+.new-product-modal:after {
+  position: absolute;
+  content: "";
+  bottom: -50px;
+  height: 40px;
+  width: 1px;
 }
 
 @media only screen and (max-width: 750px) {

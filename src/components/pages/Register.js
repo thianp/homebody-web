@@ -4,7 +4,7 @@ import facebook from "../../assets/images/facebook.png";
 import twitter from "../../assets/images/twitter.png";
 import linkedin from "../../assets/images/linkedin.png";
 
-function Login() {
+function Register() {
   return (
     <>
       {/* ----- Header ----- */}
@@ -151,11 +151,29 @@ function Login() {
           </div>
         </nav>
       </header>
-      {/* ----- Login ----- */}
-      <div className="login">
-        <h1 className="heading-text">Log In</h1>
+      {/* ----- Register ----- */}
+      <div className="register">
+        <h1 className="heading-text">Create An Account</h1>
         <form>
           <div className="form-group">
+            <label className="mt-3" for="firstName">
+              First name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="firstName"
+              placeholder="John"
+            />
+            <label className="mt-3" for="lastName">
+              Last name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="lastName"
+              placeholder="Doe"
+            />
             <label className="mt-3" for="email">
               Email (username)
             </label>
@@ -164,6 +182,15 @@ function Login() {
               className="form-control"
               id="email"
               placeholder="name@example.com"
+            />
+            <label className="mt-3" for="phoneNumber">
+              Phone number
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="phoneNumber"
+              placeholder="088040XXXX"
             />
             <label className="mt-3" for="password">
               Password
@@ -174,18 +201,46 @@ function Login() {
               id="password"
               placeholder="********"
             />
+            <label className="mt-3" for="confirmPassword">
+              Confirm password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="confirmPassword"
+              placeholder="********"
+            />
           </div>
+          <div className="subheader-text mt-5">
+            <h2>Shipping Address</h2>
+          </div>
+          <label className="mt-3" for="addressLine1">
+            Address line 1
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="addressLine1"
+            placeholder="646 Phayathai rd."
+          />
+          <label className="mt-3" for="province">Provinces</label>
+            <select class="form-select" id="province" name="province">
+              <option value="exampleProvince">Example province</option>
+            </select>
+          <label className="mt-3" for="district">District</label>
+            <select class="form-select" id="district" name="district">
+              <option value="exampleDistrict">Example district</option>
+            </select>
+          <label className="mt-3" for="amphoe">Amphoe</label>
+            <select class="form-select" id="amphoe" name="amphoe">
+              <option value="exampleAmphoe">Example amphoe</option>
+            </select>
+          <label className="mt-3" for="postalCode">Postal code</label>
+            <select class="form-select" id="postalCode" name="postalCode">
+              <option value="examplePostalCode">Example postal code</option>
+            </select>
         </form>
-        <div className="row mt-5">
-          <div className="col-6">
-          <button className="black-button px-5">Log In</button>
-          </div>
-          <div className="col-6">
-          <button className="white-button">
-              Create Account
-              </button>
-          </div>
-        </div>
+        <button className="black-button px-5 mt-5">Create Account</button>
       </div>
       {/* ----- Footer ----- */}
       <footer>
@@ -220,4 +275,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

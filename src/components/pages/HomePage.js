@@ -6,7 +6,7 @@ import facebook from "../../assets/images/facebook.png";
 import twitter from "../../assets/images/twitter.png";
 import linkedin from "../../assets/images/linkedin.png";
 
-function HomePage() {
+function AdminManageProducts() {
   return (
     <>
       {/* ----- Header ----- */}
@@ -298,4 +298,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default AdminManageProducts;

@@ -176,7 +176,7 @@ function Checkout() {
           aria-hidden="true"
         >
           <div class="modal-dialog">
-            <div class="modal-content pb-5">
+            <div class="modal-content payment-confirmation-modal pb-5">
               <button
                 type="button"
                 class="btn-close align-self-end m-2"
