@@ -3,14 +3,27 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+// import bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.bundle';
+import "bootstrap/dist/js/bootstrap.bundle";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import AuthContextProvider from "./contexts/AuthContext";
+import ErrorContextProvider from "./contexts/ErrorContext";
+import AddressContextProvider from "./contexts/AddressContext";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ErrorContextProvider>
+        <AuthContextProvider>
+          <AddressContextProvider>
+          <App />
+          </AddressContextProvider>
+        </AuthContextProvider>
+      </ErrorContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

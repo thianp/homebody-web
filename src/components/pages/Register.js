@@ -1,160 +1,87 @@
-import fullLogo from "../../assets/images/full-logo.png";
-import logo from "../../assets/images/logo.png";
-import facebook from "../../assets/images/facebook.png";
-import twitter from "../../assets/images/twitter.png";
-import linkedin from "../../assets/images/linkedin.png";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import { ErrorContext } from "../../contexts/ErrorContext";
+import { AddressContext } from "../../contexts/AddressContext";
+import axios from "../../config/axios";
+import { useNavigate } from "react-router-dom";
+
 
 function Register() {
+  const navigate = useNavigate()
+  const [signUpInputs, setSignUpInputs] = useState({
+    fName: "",
+    lName: "",
+    phoneNumber: "",
+    email: "",
+    password: "",
+    addressLine1: "",
+    amphureId: "",
+    districtId: "",
+    provinceId: "",
+    postalCode: "",
+  });
+
+  const { signUp } = useContext(AuthContext);
+  const { setError } = useContext(ErrorContext);
+  const { address, setAddress } = useContext(AddressContext);
+
+  const handleSubmitSignUp = async (e) => {
+    try {
+      e.preventDefault();
+      await signUp(signUpInputs);
+      navigate('/')
+    } catch (err) {
+      setError(err);
+    }
+  };
+
+  const handleChange = (e) => {
+    let updatedValue = {};
+    updatedValue = { [e.target.id]: e.target.value };
+    setSignUpInputs((signUpInputs) => ({
+      ...signUpInputs,
+      ...updatedValue,
+    }));
+  };
+
+  const handleChangeAddress = async (e) => {
+    let updatedValue = {};
+    updatedValue = { [e.target.id]: e.target.value };
+    setSignUpInputs((signUpInputs) => ({
+      ...signUpInputs,
+      ...updatedValue,
+    }));
+    let res;
+    if (e.target.id === "provinceId") {
+      res = await axios.get("/address/amphoes/" + e.target.value);
+      setAddress((address) => ({
+        ...address,
+        amphures: res.data.amphoes,
+      }));
+    }
+    if (e.target.id === "amphureId") {
+      res = await axios.get("/address/districts/" + e.target.value);
+      setAddress((address) => ({
+        ...address,
+        districts: res.data.districts,
+      }));
+    }
+    if (e.target.id === "districtId") {
+      res = await axios.get("/address/district/" + e.target.value);
+      setSignUpInputs((address) => ({
+        ...address,
+        postalCode: res.data.district.zipCode + "",
+      }));
+    }
+    console.log(signUpInputs);
+  };
+
   return (
     <>
-      {/* ----- Header ----- */}
-      <header className="mt-2">
-        <nav className="navbar navbar-expand-lg">
-          <div className="container-fluid p-0">
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              data-bs-target="navbarToggler"
-            >
-              <span>
-                <i className="fa-solid fa-bars"></i>
-              </span>
-            </button>
-            <div
-              className="collapse navbar-collapse justify-content-between"
-              id="navbarToggler"
-            >
-              <ul className="navbar-nav mr-auto w-25">
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Home
-                  </a>
-                </li>
-                <li className="nav-item dropdown-container">
-                  <a
-                    className="btn dropdown-toggle nav-link"
-                    href="#"
-                    role="button"
-                    id="productsDropdown"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Products
-                  </a>
-                  <ul
-                    className="dropdown-menu p-3"
-                    aria-labelledby="productsDropdown"
-                  >
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>
-                          <strong>New Arrivals</strong>
-                        </p>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>Storage</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>Lighting</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>Rugs &#38; Flooring</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>Kitchenware</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>Bathroom</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>Beds &#38; Mattresses</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    About Us
-                  </a>
-                </li>
-              </ul>
-              <a className="navbar-brand p-0" href="#">
-                <img className="logo" src={fullLogo}></img>
-              </a>
-              <ul className="navbar-nav ml-auto w-25 justify-content-end">
-                <li className="nav-item dropdown-container">
-                  <a
-                    className="btn dropdown-toggle nav-link"
-                    href="#"
-                    role="button"
-                    id="languagesDropdown"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    En
-                  </a>
-                  <ul
-                    className="dropdown-menu p-3"
-                    aria-labelledby="languagesDropdown"
-                  >
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p>English</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        <p className="th-option">ไทย</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    <i className="fas fa-search"></i>
-                  </a>
-                </li>
-                {/* Guest user */}
-                {/* <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Log In
-                  </a>
-                </li> */}
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    <i className="fas fa-shopping-cart text-dark"></i>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    <i className="fas fa-user-circle"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
       {/* ----- Register ----- */}
       <div className="register">
         <h1 className="heading-text">Create An Account</h1>
-        <form>
+        <form onSubmit={handleSubmitSignUp}>
           <div className="form-group">
             <label className="mt-3" for="firstName">
               First name
@@ -162,8 +89,10 @@ function Register() {
             <input
               type="text"
               className="form-control"
-              id="firstName"
+              id="fName"
               placeholder="John"
+              value={signUpInputs.fName}
+              onChange={(e) => handleChange(e)}
             />
             <label className="mt-3" for="lastName">
               Last name
@@ -171,8 +100,10 @@ function Register() {
             <input
               type="text"
               className="form-control"
-              id="lastName"
+              id="lName"
               placeholder="Doe"
+              value={signUpInputs.lName}
+              onChange={(e) => handleChange(e)}
             />
             <label className="mt-3" for="email">
               Email (username)
@@ -182,6 +113,8 @@ function Register() {
               className="form-control"
               id="email"
               placeholder="name@example.com"
+              value={signUpInputs.email}
+              onChange={(e) => handleChange(e)}
             />
             <label className="mt-3" for="phoneNumber">
               Phone number
@@ -191,6 +124,8 @@ function Register() {
               className="form-control"
               id="phoneNumber"
               placeholder="088040XXXX"
+              value={signUpInputs.phoneNumber}
+              onChange={(e) => handleChange(e)}
             />
             <label className="mt-3" for="password">
               Password
@@ -200,15 +135,8 @@ function Register() {
               className="form-control"
               id="password"
               placeholder="********"
-            />
-            <label className="mt-3" for="confirmPassword">
-              Confirm password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="confirmPassword"
-              placeholder="********"
+              value={signUpInputs.password}
+              onChange={(e) => handleChange(e)}
             />
           </div>
           <div className="subheader-text mt-5">
@@ -222,55 +150,83 @@ function Register() {
             className="form-control"
             id="addressLine1"
             placeholder="646 Phayathai rd."
+            value={signUpInputs.addressLine1}
+            onChange={(e) => handleChange(e)}
           />
-          <label className="mt-3" for="province">Provinces</label>
-            <select class="form-select" id="province" name="province">
-              <option value="exampleProvince">Example province</option>
-            </select>
-          <label className="mt-3" for="district">District</label>
-            <select class="form-select" id="district" name="district">
-              <option value="exampleDistrict">Example district</option>
-            </select>
-          <label className="mt-3" for="amphoe">Amphoe</label>
-            <select class="form-select" id="amphoe" name="amphoe">
-              <option value="exampleAmphoe">Example amphoe</option>
-            </select>
-          <label className="mt-3" for="postalCode">Postal code</label>
-            <select class="form-select" id="postalCode" name="postalCode">
-              <option value="examplePostalCode">Example postal code</option>
-            </select>
+          <label className="mt-3" for="province">
+            Province
+          </label>
+          <select
+            className="form-select"
+            id="provinceId"
+            name="province"
+            value={signUpInputs.provinceId}
+            onChange={(e) => handleChangeAddress(e)}
+          >
+            <option value="" selected disabled hidden>
+              Select Province
+            </option>
+            {address.provinces.map((province) => (
+              <option value={province.id}>{province.nameEn}</option>
+            ))}
+          </select>
+
+          <label className="mt-3" for="amphoe">
+            Amphoe
+          </label>
+          <select
+            class="form-select"
+            id="amphureId"
+            name="amphure"
+            value={signUpInputs.amphureId}
+            onChange={(e) => handleChangeAddress(e)}
+            disabled={signUpInputs.provinceId === "" ? true : false}
+          >
+            <option value="" selected disabled hidden>
+              Select Amphoe
+            </option>
+            {address.amphures.map((amphure) => (
+              <option value={amphure.id}>{amphure.nameEn}</option>
+            ))}
+          </select>
+
+          <label className="mt-3" for="district">
+            District
+          </label>
+          <select
+            class="form-select"
+            id="districtId"
+            name="district"
+            value={signUpInputs.districtId}
+            onChange={(e) => handleChangeAddress(e)}
+            disabled={signUpInputs.amphureId === "" ? true : false}
+          >
+            <option value="" selected disabled hidden>
+              Select District
+            </option>
+            {address.districts.map((district) => (
+              <option value={district.id}>{district.nameEn}</option>
+            ))}
+          </select>
+
+          <label className="mt-3" for="postalCode">
+            Postal code
+          </label>
+
+          <input
+            type="text"
+            className="form-control"
+            id="postalCode"
+            value={signUpInputs.postalCode}
+            placeholder="10400"
+            disabled={signUpInputs.districtId === "" ? true : false}
+            readOnly={true}
+          />
+        <button className="black-button px-5 mt-5" type="submit">
+          Create Account
+        </button>
         </form>
-        <button className="black-button px-5 mt-5">Create Account</button>
       </div>
-      {/* ----- Footer ----- */}
-      <footer>
-        <div className="footer">
-          <div className="logo d-flex">
-            <img src={logo}></img>
-          </div>
-          <p className="desc-text">
-            646 Phayathai rd., <br />
-            Ratchatewi district <br />
-            Bangkok 10400 <br />
-            <br />
-            Tel 02-333-3333
-          </p>
-          <div className="socmed-icons">
-            <a href="#">
-              <img src={facebook}></img>
-            </a>
-            <a href="#">
-              <img src={twitter}></img>
-            </a>
-            <a href="#">
-              <img src={linkedin}></img>
-            </a>
-          </div>
-        </div>
-        <div className="d-flex justify-content-center">
-          <p className="desc-text">Copyright © 2022 Homebody</p>
-        </div>
-      </footer>
     </>
   );
 }

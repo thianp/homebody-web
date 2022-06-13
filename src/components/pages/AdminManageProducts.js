@@ -5,7 +5,7 @@ import twitter from "../../assets/images/twitter.png";
 import linkedin from "../../assets/images/linkedin.png";
 import sofa from "../../assets/images/sofa.png";
 
-function AdminViewOrders() {
+function AdminManageProducts() {
   return (
     <>
       {/* ----- Admin header ----- */}
@@ -361,4 +361,4 @@ function AdminViewOrders() {
   );
 }
 
-export default AdminViewOrders;
+export default AdminManageProducts;

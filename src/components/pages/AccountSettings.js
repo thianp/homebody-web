@@ -183,6 +183,7 @@ function AccountSettings() {
               className="form-control"
               id="email"
               placeholder="name@example.com"
+              readOnly
             />
             <label className="mt-3" for="phoneNumber">
               Phone number
@@ -194,7 +195,7 @@ function AccountSettings() {
               placeholder="088040XXXX"
             />
             <label className="mt-3" for="password">
-              Password
+              Current password (required)
             </label>
             <input
               type="password"
@@ -203,7 +204,7 @@ function AccountSettings() {
               placeholder="********"
             />
             <label className="mt-3" for="confirmPassword">
-              Confirm password
+              New password
             </label>
             <input
               type="password"
