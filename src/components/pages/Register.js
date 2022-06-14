@@ -31,7 +31,8 @@ function Register() {
       await signUp(signUpInputs);
       navigate('/')
     } catch (err) {
-      setError(err);
+      setError(err.message);
+      console.log(err.message);
     }
   };
 

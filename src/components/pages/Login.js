@@ -64,16 +64,21 @@ function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-        <div className="row mt-5">
-          <div className="col-6">
-            <button className="black-button px-5" type="submit">
-              Log In
-            </button>
+          <div className="row mt-5">
+            <div className="col-6">
+              <button className="black-button px-5" type="submit">
+                Log In
+              </button>
+            </div>
+            <div className="col-6">
+              <button
+                className="white-button"
+                onClick={() => navigate("/register")}
+              >
+                Create Account
+              </button>
+            </div>
           </div>
-          <div className="col-6">
-            <button className="white-button">Create Account</button>
-          </div>
-        </div>
         </form>
       </div>
     </>

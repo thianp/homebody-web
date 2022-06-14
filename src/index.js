@@ -5,11 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle";
+// import "bootstrap/dist/js/bootstrap.bundle";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import AuthContextProvider from "./contexts/AuthContext";
 import ErrorContextProvider from "./contexts/ErrorContext";
 import AddressContextProvider from "./contexts/AddressContext";
+import CategoriesContextProvider from "./contexts/CategoriesContext";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,9 +19,11 @@ root.render(
     <BrowserRouter>
       <ErrorContextProvider>
         <AuthContextProvider>
-          <AddressContextProvider>
-          <App />
-          </AddressContextProvider>
+          <CategoriesContextProvider>
+            <AddressContextProvider>
+              <App />
+            </AddressContextProvider>
+          </CategoriesContextProvider>
         </AuthContextProvider>
       </ErrorContextProvider>
     </BrowserRouter>
