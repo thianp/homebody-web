@@ -430,6 +430,59 @@ select.form-select {
   width: 1px;
 }
 
+.qty {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: black;
+  padding: 8px 30px;
+}
+
+.qty .count {
+  color: #000;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 30px;
+  padding: 0 2px;
+  min-width: 35px;
+  width: 2%;
+  border: 0;
+  text-align: center;
+}
+
+.qty .plus {
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background-color: white;
+  border: 0.8px solid black;
+}
+
+.qty .minus {
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  background-color: white;
+  height: 30px;
+  text-align: center;
+  background-clip: padding-box;
+  border: 0.8px solid black;
+}
+
+.upload-receipt * {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em !important;
+  font-weight: 300 !important;
+}
+
+.upload-receipt .form-control {
+  border: 0.8px solid black;
+  border-radius: 5px;
+  padding-left: 8px;
+}
+
 @media only screen and (max-width: 750px) {
   .landing-page-image {
     display: none;

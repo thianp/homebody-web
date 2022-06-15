@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 import axios from "../../config/axios";
 
 function ProductPage() {
   const [product, setProduct] = useState([]);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -18,6 +21,18 @@ function ProductPage() {
     };
     fetchProduct();
   }, []);
+
+  const addCartItem = async () => {
+    try {
+      if (user) {
+        await axios.post("/cartitems", { productId: id, quantity: 1 });
+      } else {
+        navigate('/login')
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -55,7 +70,9 @@ function ProductPage() {
               </div>
             </div>
             <div className="d-flex justify-content-center mt-5">
-              <button className="black-button">Add To Cart</button>
+              <button className="black-button" onClick={addCartItem}>
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>

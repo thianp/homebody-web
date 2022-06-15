@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "../../config/axios";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 function ProductListing() {
   const [products, setProducts] = useState([]);
@@ -9,13 +10,15 @@ function ProductListing() {
 
   const [curCat, setCurCat] = useState();
 
+  const { setError } = useContext(ErrorContext);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(`/products/cat/${id}`);
         setProducts(res.data.products);
       } catch (err) {
-        console.log(err);
+        setError();
       }
     };
     fetchProducts();

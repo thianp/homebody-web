@@ -1,8 +1,4 @@
 import fullLogo from "../../assets/images/full-logo.png";
-import logo from "../../assets/images/logo.png";
-import facebook from "../../assets/images/facebook.png";
-import twitter from "../../assets/images/twitter.png";
-import linkedin from "../../assets/images/linkedin.png";
 import sofa from "../../assets/images/sofa.png";
 
 function AdminViewOrders() {
