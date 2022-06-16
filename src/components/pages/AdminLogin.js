@@ -62,14 +62,14 @@ function AdminLogin() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-        </form>
-        <div className="row mt-5">
-          <div className="col-6">
-            <button className="black-button px-5" type="submit">
-              Log In
-            </button>
+          <div className="row mt-5">
+            <div className="col-6">
+              <button className="black-button px-5" type="submit">
+                Log In
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
