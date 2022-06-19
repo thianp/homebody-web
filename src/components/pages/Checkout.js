@@ -1,23 +1,43 @@
-import qrCode from "../../assets/images/promptpay-example.png";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ErrorContext } from "../../contexts/ErrorContext";
 import { useParams } from "react-router-dom";
-import axios from "../../config/axios";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "bootstrap";
+import axios from "../../config/axios";
+
+import qrCode from "../../assets/images/promptpay-example.png";
+import Spinner from "../common/Spinner";
 
 function Checkout() {
   const [order, setOrder] = useState({});
   const [file, setFile] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState(""); // pending, submitting, successful
+  const { setError } = useContext(ErrorContext);
   const { id } = useParams();
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    const fetchPayment = async () => {
+      try {
+        const payment = await axios.get("/payments/" + id);
+        if (payment.data.payment) {
+          setPaymentStatus("successful");
+        }
+      } catch (err) {
+        setError(err.response.data.message);
+      }
+    };
+    fetchPayment();
+  });
+
+  useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const res = await axios.get("/orders/" + id);
+        const res = await axios.get("/orders/single/" + id);
         setOrder(res.data.orders);
       } catch (err) {
-        console.log(err);
+        setError(err.response.data.message);
       }
     };
     fetchOrder();
@@ -28,29 +48,30 @@ function Checkout() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    setPaymentStatus("submitting");
+    e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append('image', file);
-      const res = await axios.post('/payments/' + id, formData);
-      console.log(res);
+      if (!file) {
+        setError("Please attach an image");
+      } else {
+        const formData = new FormData();
+        formData.append("image", file);
+        const res = await axios.post("/payments/" + id, formData);
+        var myModal = new Modal(
+          document.getElementById("paymentConfirmationModal")
+        );
+        myModal.show();
+      }
     } catch (err) {
-      console.log(err);
+      setError(err.response.data.message);
+    } finally {
+      setPaymentStatus("successful");
     }
-  }
-
-  // const makePayment = async () => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append("image", file);
-  //     await axios.post("/payments/" + id);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  };
 
   return (
     <>
+      {paymentStatus === "submitting" && <Spinner />}
       {/* ----- Promptpay QR code ----- */}
       <div className="align-items-center d-flex flex-column mt-5">
         <img className="payment-code" src={qrCode}></img>
@@ -76,15 +97,20 @@ function Checkout() {
               onChange={handleChange}
             />
           </div>
-          {/* --- */}
-          <button
-            className="black-button mt-3 mx-5"
-            type="submit"
-            data-bs-toggle="modal"
-            data-bs-target="#paymentConfirmationModal"
-          >
-            Submit Receipt
-          </button>
+          {paymentStatus === "successful" ? (
+            <button className="white-button mt-3 mx-5 border-0" disabled>
+              A receipt has already been uploaded
+            </button>
+          ) : (
+            <button
+              className="black-button mt-3 mx-5"
+              type="submit"
+              // data-bs-toggle="modal"
+              // data-bs-target="#paymentConfirmationModal"
+            >
+              Submit Receipt
+            </button>
+          )}
         </form>
         <div
           class="modal fade"
@@ -100,13 +126,9 @@ function Checkout() {
                 class="btn-close align-self-end m-2"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-                onClick={navigate('/profile')}
               ></button>
               <div class="modal-header border-0 d-flex justify-content-center subheader-text ">
-                <h2
-                  class="modal-title text-center px-3 m-0"
-                  id="paymentConfirmationModalLabel"
-                >
+                <h2 class="modal-title text-center px-3 m-0">
                   Thank You For Your Purchase!
                 </h2>
               </div>

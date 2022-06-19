@@ -1,13 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ErrorContext } from "../../contexts/ErrorContext";
 import { AddressContext } from "../../contexts/AddressContext";
 import axios from "../../config/axios";
 import { useNavigate } from "react-router-dom";
 
-
 function Register() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [signUpInputs, setSignUpInputs] = useState({
     fName: "",
     lName: "",
@@ -28,11 +27,29 @@ function Register() {
   const handleSubmitSignUp = async (e) => {
     try {
       e.preventDefault();
-      await signUp(signUpInputs);
-      navigate('/')
+
+      if (signUpInputs.fName === "") {
+        setError("First name is required");
+      } else if (signUpInputs.lName === "") {
+        setError("Last name is required");
+      } else if (signUpInputs.phoneNumber === "") {
+        setError("Phone number is required");
+      } else if (signUpInputs.email === "") {
+        setError("Email is required");
+      } else if (signUpInputs.addressLine1 === "") {
+        setError("Address is required");
+      } else if (signUpInputs.provinceId === "") {
+        setError("Province is required");
+      } else if (signUpInputs.amphureId === "") {
+        setError("Amphoe is required");
+      } else if (signUpInputs.districtId === "") {
+        setError("District is required");
+      } else {
+        await signUp(signUpInputs);
+        navigate("/");
+      }
     } catch (err) {
-      setError(err.message);
-      console.log(err.message);
+      setError(err.response.data.message);
     }
   };
 
@@ -223,9 +240,9 @@ function Register() {
             disabled={signUpInputs.districtId === "" ? true : false}
             readOnly={true}
           />
-        <button className="black-button px-5 mt-5" type="submit">
-          Create Account
-        </button>
+          <button className="black-button px-5 mt-5" type="submit">
+            Create Account
+          </button>
         </form>
       </div>
     </>

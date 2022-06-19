@@ -27,7 +27,7 @@ function ProductListing() {
   useEffect(() => {
     const fetchCat = async () => {
       try {
-        const res = await axios.get(`/categories/${id}`);
+        const res = await axios.get(`/categories/cat/${id}`);
         setCurCat(res.data.categories);
       } catch (err) {
         console.log(err);
@@ -36,12 +36,24 @@ function ProductListing() {
     fetchCat();
   }, []);
 
+  console.log(curCat);
+
+  if (!curCat) {
+    return (
+      <div className="listings-cover h-25">
+        <div className="subheader-text">
+          <h2>The page you are looking for does not exist</h2>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* ----- Product listings cover ----- */}
       <div className="listings-cover">
         <div className="subheader-text">
-          <h2>Living Room</h2>
+          <h2>{curCat?.nameEn}</h2>
         </div>
         <div className="cover-img">
           <img src={curCat?.coverImage}></img>

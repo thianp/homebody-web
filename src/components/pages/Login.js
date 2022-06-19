@@ -16,10 +16,15 @@ function Login() {
   const handleSubmitLogIn = async (e) => {
     try {
       e.preventDefault();
-      await logIn(logInInputs);
-      navigate("/");
+
+      if (logInInputs.password === "") {
+        setError("Password is required");
+      } else {
+        await logIn(logInInputs);
+        navigate("/");
+      }
     } catch (err) {
-      setError(err);
+      setError(err.response.data.message);
     }
   };
 

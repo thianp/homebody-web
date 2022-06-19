@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../config/axios";
+import { ErrorContext } from "../../contexts/ErrorContext";
 import CartItem from "../cart/CartItem";
 
 function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
+  const { setError } = useContext(ErrorContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,9 +25,9 @@ function ShoppingCart() {
     try {
       const order = await axios.post("/orders");
       navigate("/checkout/" + order.data.order.id);
-      console.log(order);
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data)
+      setError(err?.response?.data?.message);
     }
   };
 
