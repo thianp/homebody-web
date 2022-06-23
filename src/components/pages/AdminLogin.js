@@ -19,7 +19,7 @@ function AdminLogin() {
       await adminLogIn(logInInputs);
       navigate("/");
     } catch (err) {
-      setError(err);
+      setError(err.response.data.message);
     }
   };
 
