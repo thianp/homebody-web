@@ -172,7 +172,7 @@ function AccountDetails() {
             Amphoe
           </label>
           <select
-            class="form-select"
+            className="form-select"
             id="amphureId"
             name="amphure"
             value={profileInputs.amphureId}
@@ -191,7 +191,7 @@ function AccountDetails() {
             District
           </label>
           <select
-            class="form-select"
+            className="form-select"
             id="districtId"
             name="district"
             value={profileInputs.districtId}

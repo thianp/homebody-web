@@ -18,7 +18,7 @@ function ProductListing() {
         const res = await axios.get(`/products/cat/${id}`);
         setProducts(res.data.products);
       } catch (err) {
-        setError();
+        setError(err.message);
       }
     };
     fetchProducts();
@@ -60,9 +60,9 @@ function ProductListing() {
         </div>
       </div>
       {/* ----- Product filter ----- */}
-      <div class="dropdown filter-dropdown d-flex justify-content-end mt-4">
+      <div className="dropdown filter-dropdown d-flex justify-content-end mt-4">
         <a
-          class="btn dropdown-toggle"
+          className="btn dropdown-toggle"
           href="#"
           role="button"
           id="filterDropdown"
@@ -72,35 +72,35 @@ function ProductListing() {
           Sort By: Price (Low to High)
         </a>
 
-        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+        <ul className="dropdown-menu" aria-labelledby="filterDropdown">
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Sort By: Price (Low to High)
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Sort By: Price (High to Low)
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Sort By: Name (A to Z)
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Sort By: Name (Z to A)
             </a>
           </li>
         </ul>
       </div>
       {/* ----- Product listings ----- */}
-      <div class="container product-listings">
-        <div class="row">
+      <div className="container product-listings">
+        <div className="row">
           {products.map((product) => (
             <div
-              class="col-md-4 mt-3"
+              className="col-md-4 mt-3"
               onClick={() => navigate("/product/" + product.id)}
             >
               <div className="card border-0">

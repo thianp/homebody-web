@@ -24,13 +24,13 @@ function ViewOrders() {
       <div className="col-10">
         <div className="view-orders px-4 pb-5">
           <h1 className="heading-text">View Orders</h1>
-          <div class="container-fluid px-0">
-            <div class="row label-row mx-0">
-              <div class="col">Reference</div>
-              <div class="col">Date</div>
-              <div class="col">Total</div>
-              <div class="col">Payment Status</div>
-              <div class="col">Details</div>
+          <div className="container-fluid px-0">
+            <div className="row label-row mx-0">
+              <div className="col">Reference</div>
+              <div className="col">Date</div>
+              <div className="col">Total</div>
+              <div className="col">Payment Status</div>
+              <div className="col">Details</div>
             </div>
             {orders.map((order) => (
               <OrderDetails

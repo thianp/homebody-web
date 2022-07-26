@@ -113,26 +113,26 @@ function Checkout() {
           )}
         </form>
         <div
-          class="modal fade"
+          className="modal fade"
           id="paymentConfirmationModal"
           tabindex="-1"
           aria-labelledby="paymentConfirmationModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content payment-confirmation-modal pb-5">
+          <div className="modal-dialog">
+            <div className="modal-content payment-confirmation-modal pb-5">
               <button
                 type="button"
-                class="btn-close align-self-end m-2"
+                className="btn-close align-self-end m-2"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
-              <div class="modal-header border-0 d-flex justify-content-center subheader-text ">
-                <h2 class="modal-title text-center px-3 m-0">
+              <div className="modal-header border-0 d-flex justify-content-center subheader-text ">
+                <h2 className="modal-title text-center px-3 m-0">
                   Thank You For Your Purchase!
                 </h2>
               </div>
-              <div class="modal-body d-flex justify-content-center p-0 text-center">
+              <div className="modal-body d-flex justify-content-center p-0 text-center">
                 <p className="desc-text">
                   Your receipt was successfully uploaded.
                 </p>

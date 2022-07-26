@@ -28,14 +28,14 @@ function ManageProducts() {
             </div>
             <AddProduct />
           </div>
-          <div class="container-fluid px-0">
-            <div class="row label-row mx-0">
-              <div class="col">Product ID</div>
-              <div class="col">Name</div>
-              <div class="col">Category</div>
-              <div class="col">Price</div>
-              <div class="col">Inventory</div>
-              <div class="col"></div>
+          <div className="container-fluid px-0">
+            <div className="row label-row mx-0">
+              <div className="col">Product ID</div>
+              <div className="col">Name</div>
+              <div className="col">Category</div>
+              <div className="col">Price</div>
+              <div className="col">Inventory</div>
+              <div className="col"></div>
             </div>
             {products.map((product) => (
               <EditProduct

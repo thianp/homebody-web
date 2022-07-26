@@ -79,13 +79,13 @@ function EditProduct({
   return (
     <>
       {loading && <Spinner />}
-      <div class="row order-row mx-0">
-        <div class="col">{id}</div>
-        <div class="col">{nameEn}</div>
-        <div class="col">{category}</div>
-        <div class="col">{price.toLocaleString("en-US")} Baht</div>
-        <div class="col">{inventory}</div>
-        <div class="col">
+      <div className="row order-row mx-0">
+        <div className="col">{id}</div>
+        <div className="col">{nameEn}</div>
+        <div className="col">{category}</div>
+        <div className="col">{price.toLocaleString("en-US")} Baht</div>
+        <div className="col">{inventory}</div>
+        <div className="col">
           <button
             id={id}
             className="light-button"
@@ -96,27 +96,27 @@ function EditProduct({
           </button>
           {/* ----- Edit product modal (open) ----- */}
           <div
-            class="modal fade"
+            className="modal fade"
             id={"product" + id}
             tabindex="-1"
             aria-labelledby="editProductModalLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog">
-              <div class="modal-content pb-4 px-4 new-product-modal">
+            <div className="modal-dialog">
+              <div className="modal-content pb-4 px-4 new-product-modal">
                 <button
                   type="button"
-                  class="btn-close btn-close-rel align-self-end m-2"
+                  className="btn-close btn-close-rel align-self-end m-2"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
-                <div class="border-0 subheader-text">
-                  <h2 class="modal-title mb-0" id="editProductModalLabel">
+                <div className="border-0 subheader-text">
+                  <h2 className="modal-title mb-0" id="editProductModalLabel">
                     Edit
                   </h2>
                 </div>
 
-                <div class="modal-body p-0">
+                <div className="modal-body p-0">
                   <form onSubmit={handleSubmit}>
                     <div className="form-group">
                       <label className="mt-3" for="nameTh">
@@ -183,7 +183,7 @@ function EditProduct({
                         Category
                       </label>
                       <select
-                        class="form-select"
+                        className="form-select"
                         id="categoryId"
                         name="category"
                         defaultValue={category.nameEn}
@@ -205,7 +205,7 @@ function EditProduct({
                         Subcategory
                       </label>
                       <select
-                        class="form-select"
+                        className="form-select"
                         id="subcategoryId"
                         name="subcategory"
                         disabled={

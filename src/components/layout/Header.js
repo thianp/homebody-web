@@ -1,11 +1,13 @@
 import fullLogo from "../../assets/images/full-logo.png";
-import { AuthContext } from "../../contexts/AuthContext";
+import { CartItemContext } from "../../contexts/CartItemContext";
 import { CategoriesContext } from "../../contexts/CategoriesContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Header() {
   const { user, logOut } = useContext(AuthContext);
   const { categories } = useContext(CategoriesContext);
+  const { itemCount, setItemCount } = useContext(CartItemContext);
 
   return (
     <>
@@ -116,8 +118,16 @@ function Header() {
                 {user ? (
                   <>
                     <li className="nav-item">
-                      <a className="nav-link" href="/cart">
+                      <a
+                        className="nav-link position-relative px-3"
+                        href="/cart"
+                      >
                         <i className="fas fa-shopping-cart text-dark"></i>
+                        {itemCount ? (
+                          <span className="cart-count position-absolute">
+                            {itemCount <= 10 ? itemCount : "10+"}
+                          </span>
+                        ) : null}
                       </a>
                     </li>
                     <li className="nav-item">

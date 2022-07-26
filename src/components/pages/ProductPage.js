@@ -1,21 +1,26 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import { ErrorContext } from "../../contexts/ErrorContext";
 import axios from "../../config/axios";
+import { CartItemContext } from "../../contexts/CartItemContext";
 
 function ProductPage() {
   const [product, setProduct] = useState([]);
   const [selectedImg, setSelectedImg] = useState(null);
   const { user } = useContext(AuthContext);
+  const { itemCount, setItemCount } = useContext(CartItemContext);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const { setError } = useContext(ErrorContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const res = await axios.get(`/products/${id}`);
         setProduct(res.data.product);
-        setSelectedImg(res.data.product.image1)
+        setSelectedImg(res.data.product.image1);
         // console.log(res.data.product);
       } catch (err) {
         console.log(err);
@@ -28,11 +33,13 @@ function ProductPage() {
     try {
       if (user) {
         await axios.post("/cartitems", { productId: id, quantity: 1 });
+        setItemCount((itemCount) => (itemCount += 1));
       } else {
         navigate("/login");
+        setError("Please log in");
       }
     } catch (err) {
-      console.log(err);
+      setError(err.message);
     }
   };
 

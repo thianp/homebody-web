@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../config/axios";
+import { CartItemContext } from "../../contexts/CartItemContext";
 import { ErrorContext } from "../../contexts/ErrorContext";
 import CartItem from "../cart/CartItem";
 
 function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
+  const { itemCount, setItemCount } = useContext(CartItemContext);
   const { setError } = useContext(ErrorContext);
   const navigate = useNavigate();
 
@@ -21,12 +23,20 @@ function ShoppingCart() {
     fetchCartItems();
   }, []);
 
+  useEffect(() => {
+    const curCount = cartItems.reduce(
+      (prevVal, curVal) => +prevVal + +curVal.quantity,
+      0
+    );
+    setItemCount(curCount);
+  }, [cartItems]);
+
   const handleCheckout = async () => {
     try {
       const order = await axios.post("/orders");
       navigate("/checkout/" + order.data.order.id);
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err.response.data);
       setError(err?.response?.data?.message);
     }
   };

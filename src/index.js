@@ -11,6 +11,7 @@ import AuthContextProvider from "./contexts/AuthContext";
 import ErrorContextProvider from "./contexts/ErrorContext";
 import AddressContextProvider from "./contexts/AddressContext";
 import CategoriesContextProvider from "./contexts/CategoriesContext";
+import CartItemContextProvider from "./contexts/CartItemContext";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,7 +22,9 @@ root.render(
         <AuthContextProvider>
           <CategoriesContextProvider>
             <AddressContextProvider>
-              <App />
+              <CartItemContextProvider>
+                <App />
+              </CartItemContextProvider>
             </AddressContextProvider>
           </CategoriesContextProvider>
         </AuthContextProvider>

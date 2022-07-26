@@ -86,27 +86,27 @@ function AddProduct() {
         </button>
         {/* ----- Add product modal (open) ----- */}
         <div
-          class="modal fade"
+          className="modal fade"
           id="addProductModal"
           tabindex="-1"
           aria-labelledby="addProductModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content pb-4 px-4 new-product-modal">
+          <div className="modal-dialog">
+            <div className="modal-content pb-4 px-4 new-product-modal">
               <button
                 type="button"
-                class="btn-close btn-close-rel align-self-end m-2"
+                className="btn-close btn-close-rel align-self-end m-2"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
-              <div class="border-0 subheader-text">
-                <h2 class="modal-title mb-0" id="addProductModalLabel">
+              <div className="border-0 subheader-text">
+                <h2 className="modal-title mb-0" id="addProductModalLabel">
                   New Product
                 </h2>
               </div>
 
-              <div class="modal-body p-0">
+              <div className="modal-body p-0">
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label className="mt-3" for="nameTh">
@@ -175,7 +175,7 @@ function AddProduct() {
                       Category
                     </label>
                     <select
-                      class="form-select"
+                      className="form-select"
                       id="categoryId"
                       name="category"
                       onChange={(e) => handleChange(e)}
@@ -191,7 +191,7 @@ function AddProduct() {
                       Subcategory
                     </label>
                     <select
-                      class="form-select"
+                      className="form-select"
                       id="subcategoryId"
                       name="subcategory"
                       onChange={(e) => handleChange(e)}

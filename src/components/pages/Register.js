@@ -193,7 +193,7 @@ function Register() {
             Amphoe
           </label>
           <select
-            class="form-select"
+            className="form-select"
             id="amphureId"
             name="amphure"
             value={signUpInputs.amphureId}
@@ -212,7 +212,7 @@ function Register() {
             District
           </label>
           <select
-            class="form-select"
+            className="form-select"
             id="districtId"
             name="district"
             value={signUpInputs.districtId}

@@ -22,13 +22,13 @@ function PurchaseHistoryContainer() {
       <h1 className="heading-text">
           Purchase History
       </h1>
-      <div class="container-fluid">
-        <div class="row label-row">
-          <div class="col">Reference</div>
-          <div class="col">Date</div>
-          <div class="col">Total</div>
-          <div class="col">Payment Status</div>
-          <div class="col">Details</div>
+      <div className="container-fluid">
+        <div className="row label-row">
+          <div className="col">Reference</div>
+          <div className="col">Date</div>
+          <div className="col">Total</div>
+          <div className="col">Payment Status</div>
+          <div className="col">Details</div>
         </div>
         {orders.map((order) => (
           <PurchaseHistoryDetails
